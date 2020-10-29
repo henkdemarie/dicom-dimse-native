@@ -165,6 +165,11 @@ void FindAsyncWorker::Execute(const ExecutionProgress &progress)
         return;
     }
 
+    if (in.qrInfoModel.empty())
+    {
+        in.destination = UID_FINDStudyRootQueryRetrieveInformationModel;
+    }
+
     ns::DicomObject queryAttributes;
     OFList<OFString> overrideKeys;
 
@@ -204,7 +209,7 @@ void FindAsyncWorker::Execute(const ExecutionProgress &progress)
         std::stoi(in.target.port),
         in.source.aet.c_str(),
         in.target.aet.c_str(),
-        UID_FINDStudyRootQueryRetrieveInformationModel,
+        in.qrInfoModel.c_str(),
         EXS_Unknown,
         DIMSE_BLOCKING,
         30,

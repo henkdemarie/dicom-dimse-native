@@ -76,6 +76,7 @@ namespace ns {
         std::string storagePath;
         std::string sourcePath;
         std::string destination;
+        std::string qrInfoModel;
         std::vector<sTag> tags;
         std::vector<sIdent> peers;
         bool verbose;
@@ -142,6 +143,7 @@ namespace ns {
         in.destination = toString(j, "destination");
         in.storagePath = toString(j, "storagePath");
         in.sourcePath = toString(j, "sourcePath");
+        in.qrInfoModel = toString(j, "qrInfoModel");
         try {
             auto tags = j.at("tags");
             for (json::iterator it = tags.begin(); it != tags.end(); ++it) {
