@@ -1,6 +1,5 @@
 build
 prebuilds
-data
 .vscode
 *.dcm
 
